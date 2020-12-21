@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  To run this build script, type: 
+
+  ant -f build.xml
+
+  in a shell. 
+-->
+
+<project name="hw_10" basedir="."  default="clean">
+
+	<property environment="env"/>
+    <property name="src" location="src" />
+	<property name="bin" location="bin" />
+	<property name="test.src" location="test/src" />
+	<property name="test.bin" location="test/bin" />
+	<property name="test.reports" location="test/reports" />
+
+    <path id="classpath">
+		<pathelement location="bin" />
+		<pathelement location="test/bin" />
+		<fileset dir="${env.JUNIT}" includes="*.jar" excludes="junit.vintage.*.jar" />
+	</path>
+
+	<target name="init">
+        <mkdir dir="${bin}"/>
+		<mkdir dir="${test.bin}"/>
+		<mkdir dir="${test.reports}"/>
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac srcdir="${src}" destdir="${bin}" includeAntRuntime="false">
+            <classpath refid="classpath"/>	
+			<include name="edu/umb/cs680/hw10/fs/*.java"/>
+			<include name="edu/umb/cs680/hw10/apfs/*.java"/>
+		</javac>
+		<javac srcdir="${test.src}" destdir="${test.bin}" includeAntRuntime="false">
+            <classpath refid="classpath"/>	
+			<include name="edu/umb/cs680/hw10/fs/ApfsFileSystemTest.java"/>
+		</javac>
+	</target>
+
+	<target name="run" depends="compile">
+		<java classname="edu.umb.cs680.hw10.fs.StartupFileSystem"
+				classpathref="classpath"  
+				fork="true"/>
+		<junitlauncher printSummary="true">
+			<classpath refid="classpath" />
+			<testclasses outputdir="${test.reports}">
+				<fileset dir="${test.bin}">	
+					<include name="edu/umb/cs680/hw10/fs/ApfsFileSystemTest.class"/>
+				</fileset>
+				<listener type="legacy-plain" sendSysOut="true"/>
+			</testclasses>
+		</junitlauncher>
+	</target>
+
+	<target name="clean" depends="run">
+		<delete includeemptydirs="true">
+			<fileset dir="${bin}/edu/umb/cs680/hw10/fs" includes="**/*"/>
+			<fileset dir="${bin}/edu/umb/cs680/hw10/apfs" includes="**/*"/>
+			<fileset dir="${test.bin}/edu/umb/cs680/hw10/fs" includes="**/*" />
+		</delete>
+	</target>
+
+	<target name="reset">
+		<delete includeemptydirs="true">
+			<fileset dir="${bin}"/>
+			<fileset dir="${test.bin}"/>
+			<fileset dir="${test.reports}"/>
+		</delete>
+	</target>
+
+</project>
