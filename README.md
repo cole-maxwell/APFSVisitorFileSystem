@@ -9,7 +9,7 @@ file systems like FAT32 or NTFS can added modularly.
 
 ---- Compile & Run ----<br />
 
-**_cd_** to **_/ApfsVisitorFileSystem_** and type **_ant -f build.xml_**.<br />
+Clone the repo, **_cd_** to **_/ApfsVisitorFileSystem_** and type **_ant -f build.xml_**.<br />
 
 ---- Prerequisite Steps & Environment Setup ----<br />
 
