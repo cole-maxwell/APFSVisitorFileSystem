@@ -5,7 +5,7 @@ This program builds on the ApfsFileSystem program by introducing the ApfsVisitor
 package, which is implemented by the ApfsFileCrawlingVisitor, ApfsFileSearchVisitor, and ApfsCountingVisitor classes.<br />
 The unique operations defined in the three visitor classes are decoupled from the file system elements<br />
 that they interact with. The /fs package still contains the file system foundation classes, and other types of <br />
-file systems like FAT32 or NTFS can added moduluary.
+file systems like FAT32 or NTFS can added modularly.
 
 ---- Compile & Run ----<br />
 
