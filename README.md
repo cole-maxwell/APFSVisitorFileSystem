@@ -1,9 +1,8 @@
 # ApfsVisitorFileSystem
 ---- Program Description ----<br />
 
-This program builds on the ApfsFileSystem.java program by introducing the ApfsVisitor interface to the /apfs<br />
-package, which is implemented by the ApfsFileCrawlingVisitor, ApfsFileSearchVisitor, and ApfsCountingVisitor classes.<br />
-The seperate operations defined in the three visitor classes are decoupled from the file system elements<br />
+the ApfsFileCrawlingVisitor, ApfsFileSearchVisitor, and ApfsCountingVisitor classes extend the ApfsVisitor interface.<br />
+These three visitor classes, defined in the /apfs package, are decoupled from the file system elements<br />
 that they interact with. The /fs package still contains the file system foundation classes, and other types of <br />
 file systems like FAT32 or NTFS can be added modularly.
 
