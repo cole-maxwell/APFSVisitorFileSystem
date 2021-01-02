@@ -1,7 +1,7 @@
 # ApfsVisitorFileSystem
 ---- Program Description ----<br />
 
-the ApfsFileCrawlingVisitor, ApfsFileSearchVisitor, and ApfsCountingVisitor classes extend the ApfsVisitor interface.<br />
+The ApfsFileCrawlingVisitor, ApfsFileSearchVisitor, and ApfsCountingVisitor classes extend the ApfsVisitor interface.<br />
 These three visitor classes, defined in the /apfs package, are decoupled from the file system elements<br />
 that they interact with. The /fs package still contains the file system foundation classes, and other types of <br />
 file systems like FAT32 or NTFS can be added modularly.
