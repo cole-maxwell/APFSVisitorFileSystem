@@ -9,7 +9,8 @@ public class ApfsFileSystemTest {
 
 	@Test
 	public void verifyCountingVisitorDirNum() {
-		APFS apfs = new APFS("new apfs", 1024);
+        
+		APFS apfs = new APFS();
         apfs.initFileSystem("new apfs", 1024);
 
         ApfsDirectory root = new ApfsDirectory(null, "root", 0, LocalDateTime.now(), null); 

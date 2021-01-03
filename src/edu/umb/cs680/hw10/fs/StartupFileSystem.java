@@ -5,9 +5,9 @@ import java.time.LocalDateTime;
 public class StartupFileSystem {
 	public static void main(String[] args)
 	{
-        APFS apfs = new APFS("new apfs", 1024);
-        apfs.initFileSystem("new apfs", 1024);
-
+        APFS apfs = new APFS();
+        apfs.initFileSystem("APFS-1", 1024);
+        
         ApfsDirectory root = new ApfsDirectory(null, "root", 0, LocalDateTime.now(), null); 
         ApfsDirectory home = new ApfsDirectory(root, "home", 0, LocalDateTime.now(), null);
         ApfsDirectory applications = new ApfsDirectory(root, "applications", 0, LocalDateTime.now(), null);

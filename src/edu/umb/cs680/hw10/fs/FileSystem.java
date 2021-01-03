@@ -9,14 +9,13 @@ abstract public class FileSystem
 	private int id;
 	private LinkedList<FSElement> rootDirs = new LinkedList<FSElement>();
 
-	public FileSystem (String name, int capacity) {
-		this.name = name;
-		this.capacity = capacity;
-	}
+	public FileSystem () {}
 
 	public FSElement initFileSystem(String name, int capacity) {
+
 		this.name = name;
 		this.capacity = capacity;
+		
 		FSElement root = createDeafultRoot();
 		if (root.isDirectory() && capacity >= root.getSize()) {
 			setRoot(root);

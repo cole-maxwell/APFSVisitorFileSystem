@@ -7,9 +7,8 @@ public class APFS extends FileSystem
 {
 	private ApfsDirectory root;
 
-	public APFS(String name, int capacity) {
-		super(name, capacity);
-	}
+	public APFS() {}
+
 	public FSElement createDeafultRoot() {
 		ApfsDirectory root = new ApfsDirectory(null, "default root directory", 0, LocalDateTime.now(), null);
 		this.root = root;
@@ -23,6 +22,11 @@ public class APFS extends FileSystem
 	}
 	public void appendRootDir(ApfsDirectory root) {
 		this.root = root;
+	}
+	public String toString() {
+		return String.format("%s%n%s",
+			"File System Name: " + this.getName(),
+			"File System Capacity: " + this.getCapacity());
 	}
 }
 
